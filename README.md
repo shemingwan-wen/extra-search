@@ -1,5 +1,5 @@
 ## Extra Search
-This userscript exposes search fields in the /tags and /artists pages that are normally not shown to regular users.
+This userscript adds extra search fields in the /tags and /artists pages.
 
 ### Installing
 1. Install [ViolentMonkey](https://violentmonkey.github.io/) or another userscript manager
