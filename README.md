@@ -3,7 +3,7 @@ This userscript exposes search fields in the /tags and /artists pages that are n
 
 ### Installing
 1. Install [ViolentMonkey](https://violentmonkey.github.io/) or another userscript manager
-1. Head to [the script](https://github.com/shemingwan-wen/extra-search/raw/refs/heads/master/dist/extrasearch.user.js) to install it
+1. Head to [the script](https://github.com/shemingwan-wen/extra-search/raw/refs/heads/main/dist/extrasearch.user.js) to install it
 
 ### Building
 1. Clone this repository
