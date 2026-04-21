@@ -27,7 +27,7 @@ export function newInputField(
 ) {
   const div = newField(id)
   const label = newLabel(id, labelText)
-  const input = document.createElement<"input">("input") 
+  const input = document.createElement("input") 
 
   input.classList.add("w-full", "max-w-360px", "string", "optional", "input")
   input.type = type
@@ -36,6 +36,25 @@ export function newInputField(
 
   div.append(label)
   div.append(input)
+
+  return div
+}
+
+export function newTextareaField(
+  id: string, 
+  name: string, 
+  labelText: string,
+) {
+  const div = newField(id)
+  const label = newLabel(id, labelText)
+  const textarea = document.createElement("textarea")
+
+  textarea.classList.add("text", "optional")
+  textarea.name = name
+  textarea.id = id
+
+  div.append(label)
+  div.append(textarea)
 
   return div
 }

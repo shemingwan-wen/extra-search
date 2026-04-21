@@ -1,4 +1,4 @@
-import { newCheckboxField, newInputField, newSelectField } from "./components"
+import { newCheckboxField, newInputField, newSelectField, newTextareaField } from "./components"
 
 (function() {
   const path = window.location.pathname
@@ -6,6 +6,8 @@ import { newCheckboxField, newInputField, newSelectField } from "./components"
     tagSearch()
   } else if (path.match(/artists/)) {
     artistSearch()
+  } else if (path.match(/bulk_update_requests/)) {
+    burSearch()
   }
 })()
 
@@ -80,4 +82,13 @@ function artistSearch() {
   searchForm!.insertBefore(createdAtInput, deletedDiv)
   searchForm!.insertBefore(updatedAtInput, deletedDiv)
   searchForm!.insertBefore(isBannedSelect, submitInput)
+}
+
+function burSearch() {
+  const searchForm = document.querySelector("#page .search-form")
+  const statusSelectDiv = document.querySelector(".search_status")
+
+  const scriptTextarea = newTextareaField("search_script_matches", "search[script_matches]", "Script")
+
+  searchForm!.insertBefore(scriptTextarea, statusSelectDiv)
 }

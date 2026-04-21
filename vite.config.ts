@@ -13,6 +13,7 @@ export default defineConfig({
         match: [
           '*://*.danbooru.donmai.us/tags*',
           '*://*.danbooru.donmai.us/artists*',
+          '*://*.danbooru.donmai.us/bulk_update_requests*',
         ],
         license: 'MIT',
       },
