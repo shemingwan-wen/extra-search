@@ -48,14 +48,35 @@ function tagSearch() {
 }
 
 function artistSearch() {
-  const submitInput = document.querySelector("input[type=submit]")
-  const searchForm = document.querySelector("#page .search-form")
-  const deletedDiv = document.querySelector(".search_is_deleted")
+  const searchParams = new URLSearchParams(window.location.search)
 
+  const searchForm = document.querySelector("#page .search-form")
+  const nameInput = document.querySelector("#search_any_name_matches") as HTMLInputElement
+  const urlInputDiv = document.querySelector(".search_url_matches")
+  const deletedDiv = document.querySelector(".search_is_deleted")
+  const submitInput = document.querySelector("input[type=submit]")
+
+  if (searchParams.get("search[name_regex]") !== null) {
+    nameInput.name = "search[name_regex]"
+    nameInput.value = searchParams.get("search[name_regex]")!
+  }
+
+  const regexCheckbox = newCheckboxField(
+    "search_enable_regex", 
+    "Enable regex?", 
+    (e) => {
+      const target = e.target as HTMLInputElement
+      nameInput.name = target.checked ? "search[name_regex]" : "search[any_name_matches]"
+    }, 
+    () => {
+      return searchParams.get("search[name_regex]") !== null
+    }
+  )
   const createdAtInput = newInputField("search_created_at", "search[created_at]", "Created at", "text")
   const updatedAtInput = newInputField("search_updated_at", "search[updated_at]", "Updated at", "text")
   const isBannedSelect = newSelectField("search_is_banned", "search[is_banned]", "Is banned?")
 
+  searchForm!.insertBefore(regexCheckbox, urlInputDiv)
   searchForm!.insertBefore(createdAtInput, deletedDiv)
   searchForm!.insertBefore(updatedAtInput, deletedDiv)
   searchForm!.insertBefore(isBannedSelect, submitInput)
