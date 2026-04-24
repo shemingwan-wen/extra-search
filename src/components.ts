@@ -27,7 +27,7 @@ export function newInputField(
 ) {
   const div = newField(id)
   const label = newLabel(id, labelText)
-  const input = document.createElement("input") 
+  const input = document.createElement<"input">("input") 
 
   input.classList.add("w-full", "max-w-360px", "string", "optional", "input")
   input.type = type
@@ -37,7 +37,7 @@ export function newInputField(
   div.append(label)
   div.append(input)
 
-  return div
+  return { div, input }
 }
 
 export function newTextareaField(
@@ -47,16 +47,17 @@ export function newTextareaField(
 ) {
   const div = newField(id)
   const label = newLabel(id, labelText)
-  const textarea = document.createElement("textarea")
+  const textarea = document.createElement<"textarea">("textarea")
 
-  textarea.classList.add("text", "optional")
+  textarea.classList.add("text", "optional", "w-full", "max-w-360px")
+  textarea.cols = 2
   textarea.name = name
   textarea.id = id
 
   div.append(label)
   div.append(textarea)
 
-  return div
+  return { div, textarea }
 }
 
 export function newSelectField(
@@ -92,7 +93,7 @@ export function newSelectField(
   div.append(label)
   div.append(select)
 
-  return div
+  return { div, select }
 }
 
 export function newCheckboxField(
@@ -115,5 +116,5 @@ export function newCheckboxField(
   div.append(label)
   div.append(checkbox)
 
-  return div
+  return { div, checkbox }
 }
