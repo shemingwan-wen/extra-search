@@ -10,6 +10,7 @@ export default defineConfig({
         namespace: 'https://danbooru.donmai.us/forum_topics/8502',
         author: 'shemingwan_wen',
         description: '18/04/2026, 21.17.26',
+        version: "v1.1.0",
         match: [
           '*://*.danbooru.donmai.us/tags*',
           '*://*.danbooru.donmai.us/artists*',

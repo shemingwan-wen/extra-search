@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         extrasearch
 // @namespace    https://danbooru.donmai.us/forum_topics/8502
-// @version      0.0.0
+// @version      v1.1.0
 // @author       shemingwan_wen
 // @description  18/04/2026, 21.17.26
 // @license      MIT
